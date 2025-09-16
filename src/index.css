@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+@import "@fontsource-variable/outfit";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Allura&display=swap");
+
+@layer components {
+  .btn {
+    @apply p-3 rounded-2xl text-gray-900 hover:text-stone-100 hover:bg-gray-300 transition-all text-xl flex justify-between items-center gap-4
+         /* @apply bg-green-700 p-3 rounded-2xl text-stone-100 hover:bg-green-800 transition-all text-xl flex justify-between items-center gap-4 */;
+  }
+  .nav-link {
+    @apply text-slate-700 hover:text-primary active:text-primary hover:font-bold active:font-bold transition-all;
+  }
+  @keyframes wiggle {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-3px);
+    }
+    75% {
+      transform: translateX(3px);
+    }
+  }
+
+  .icon-wiggle-hover {
+    transition: all 0.3s ease-in-out;
+  }
+
+  .group:hover .icon-wiggle-hover {
+    animation: wiggle 0.6s ease-in-out infinite;
+  }
+}
+
+@utility container {
+  width: 100%;
+  @media (width >= 40rem /* 640px */) {
+    max-width: 40rem /* 640px */;
+  }
+  @media (width >= 48rem /* 768px */) {
+    max-width: 48rem /* 768px */;
+  }
+  @media (width >= 64rem /* 1024px */) {
+    max-width: 64rem /* 1024px */;
+  }
+  @media (width >= 80rem /* 1280px */) {
+    max-width: 80rem /* 1280px */;
+  }
+  @media (width >= 96rem /* 1536px */) {
+    max-width: 96rem /* 1536px */;
+  }
+}
+.container {
+  margin: 0 auto;
+  width: 85%;
+}
+
+@theme {
+  --color-mainlight: #f0f3f2;
+  --color-primary: #00cc74;
+  --color-darkPrimary: #01854c;
+  --color-orange: #fd7f20;
+  --color-yellow: #fb923c;
+  --color-blue: #082f49;
+  --shadow: rgba(145, 158, 171, 0.2) 0px 2px 4px -1px,
+    rgba(145, 158, 171, 0.14) 0px 4px 5px 0px,
+    rgba(145, 158, 171, 0.12) 0px 1px 10px 0px;
+  --font-Playfair: "Playfair Display", serif;
+  --font-Allura: "Allura", cursive;
+}
+
+body {
+  font-family: "Outfit Variable", sans-serif;
+}
